@@ -22,8 +22,7 @@ public class CharacterMovement : MonoBehaviour
     {
         foreach(Transform waypoint in rigthPath)
         {
-            StartCoroutine(Move(waypoint.position, 8));
-            yield return 0;
+            yield return StartCoroutine(Move(waypoint.position, 10));
         }
     }
 
@@ -31,8 +30,7 @@ public class CharacterMovement : MonoBehaviour
     {
         foreach(Transform waypoint in leftPath)
         {
-            StartCoroutine(Move(waypoint.position, 8));
-            yield return 0;
+            yield return StartCoroutine(Move(waypoint.position, 10));
         }
     }
 
