@@ -14,7 +14,11 @@ public class CameraRotator : MonoBehaviour
 
     void Update()
     {
-       
+        if (Input.GetKeyDown(KeyCode.Space))
+        { 
+            transform.Rotate(0,90,0);
+        }
+        
 
     }
     
