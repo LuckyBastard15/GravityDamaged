@@ -18,6 +18,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.RightArrow)) { StartCoroutine(followRight1()); }
         if(Input.GetKeyDown(KeyCode.LeftArrow)) { StartCoroutine(followLeft1()); }
+        
     }
     IEnumerator followRight1() 
     {
