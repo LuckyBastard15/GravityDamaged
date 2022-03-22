@@ -5,7 +5,8 @@ using UnityEngine;
 public class MoveBaseDown : MonoBehaviour
 {
 
-    //private float speed = 3;
+    private float speed = 3;
+    private GameObject respawnPoint;
 
     void Start()
     {
@@ -14,6 +15,8 @@ public class MoveBaseDown : MonoBehaviour
     
     void Update()
     {
-        //transform.Translate(Vector3.down * speed * Time.deltaTime);
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
+
+     
     }
 }

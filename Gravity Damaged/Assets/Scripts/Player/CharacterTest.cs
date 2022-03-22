@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class CharacterTest : MonoBehaviour
 {
@@ -7,7 +9,10 @@ public class CharacterTest : MonoBehaviour
     private int _currentPillar = 0;
     private bool _isRight = false;
     private bool _isLeft = false;
-    
+
+    public DuplicateBase duplicateBase;
+
+
     private void Start()
     {
         UpdatePositionR();
@@ -29,6 +34,12 @@ public class CharacterTest : MonoBehaviour
            
         }
         
+
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        duplicateBase.SpawnTriggerEntered();
     }
 
     private void MoveR(bool goingRight)
