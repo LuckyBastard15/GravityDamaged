@@ -12,6 +12,8 @@ public class CharacterTest : MonoBehaviour
     public Transform camara;
     public DuplicateBase duplicateBase;
 
+    //public Buttons buttonClick;
+
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class CharacterTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             MoveR();
+
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -37,7 +40,7 @@ public class CharacterTest : MonoBehaviour
         duplicateBase.SpawnTriggerEntered();
     }
 
-    private void MoveR()
+    public void MoveR()
     {
 
             if (_isRight)
@@ -55,7 +58,7 @@ public class CharacterTest : MonoBehaviour
         UpdatePosition();
     }
 
-    private void MoveL()
+    public void MoveL()
     {
 
             if (_isRight)
