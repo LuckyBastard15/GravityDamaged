@@ -7,16 +7,16 @@ public class CharacterTest : MonoBehaviour
     public Pillar[] _pillars = null;
 
     private int _currentPillar = 0;
-    private bool _isRight = false;
-    private bool _isLeft = false;
+    private bool _isRight = true;
 
+    public Transform camara;
     public DuplicateBase duplicateBase;
 
 
     private void Start()
     {
-        UpdatePositionR();
-        UpdatePositionL();
+        UpdatePosition();
+       
     }
 
     void Update()
@@ -24,29 +24,21 @@ public class CharacterTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            MoveR(true);
-            
+            MoveR();
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-
-            MoveL(true);
-           
+            MoveL();
         }
         
-
-
     }
     private void OnTriggerEnter(Collider other)
     {
         duplicateBase.SpawnTriggerEntered();
     }
 
-    private void MoveR(bool goingRight)
+    private void MoveR()
     {
-
-        if (goingRight)
-        {
 
             if (_isRight)
             {
@@ -54,51 +46,45 @@ public class CharacterTest : MonoBehaviour
                 _currentPillar = _currentPillar >= _pillars.Length ? 0 : _currentPillar;
 
                 _isRight = false;
+ 
             }
             else
             {
                 _isRight = true;
             }
-
-        }
-        
-        UpdatePositionR();
+        UpdatePosition();
     }
 
-    private void MoveL(bool goingLeft)
+    private void MoveL()
     {
-            if (_isLeft)
+
+            if (_isRight)
             {
-                _currentPillar--;
-                _currentPillar = _currentPillar < 0 ? _pillars.Length - 1 : _currentPillar;
-
-
-                _isLeft = false;
+                _isRight = false;
             }
             else
             {
-                _isLeft = true;
+                _isRight = true;
+
+                _currentPillar--;
+                _currentPillar = _currentPillar < 0 ? _pillars.Length - 1 : _currentPillar;
+
             }
-        UpdatePositionL();
-
-
+        UpdatePosition();
     }
 
 
-    private void UpdatePositionR()
+    private void UpdatePosition()
     {
         var currentPillar = _pillars[_currentPillar];
         var currentPosition = _isRight ? currentPillar.rightTransform : currentPillar.leftTransform;
         transform.position = currentPosition.position;
 
-    }
-    private void UpdatePositionL()
-    {
-        var currentPillar = _pillars[_currentPillar];
-        var currentPosition = _isLeft ? currentPillar.leftTransform : currentPillar.rightTransform;
-        transform.position = currentPosition.position;
+        camara.transform.position = currentPillar.transform.position;
+        camara.transform.rotation = currentPillar.transform.rotation;
 
     }
+    
 
 }
 

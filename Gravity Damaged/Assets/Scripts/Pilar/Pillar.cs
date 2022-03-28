@@ -4,4 +4,5 @@ public class Pillar : MonoBehaviour
 {
     public Transform leftTransform;
     public Transform rightTransform;
+
 }
