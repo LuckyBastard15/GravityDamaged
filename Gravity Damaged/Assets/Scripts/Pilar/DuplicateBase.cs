@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DuplicateBase : MonoBehaviour
 {
-    WallsSpawner wallsSpawner;
+    public WallsSpawner _wallsSpawner = null;
 
     private void Start()
     {
-        wallsSpawner = GetComponent<WallsSpawner>();
+        _wallsSpawner = GetComponent<WallsSpawner>();
     }
 
     public void SpawnTriggerEntered()
     {
-        wallsSpawner.MoveWalls(); 
+        _wallsSpawner.MoveWalls(); 
     }
 }

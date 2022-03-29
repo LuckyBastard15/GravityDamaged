@@ -1,52 +1,76 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public Transform[] leftPath1;
-    public Transform[] rigthPath1;
-    
-    // Start is called before the first frame update
-    void Start()
+    public Pillar[] _pillars = null;
+    private int _currentPillar = 0;
+    private bool _isRight = true;
+    [SerializeField] public Transform _camara = null ;
+    [SerializeField] public DuplicateBase _duplicateBase = null;
+
+    private void Start()
     {
-        
+        UpdatePosition();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.RightArrow)) { StartCoroutine(followRight1()); }
-        if(Input.GetKeyDown(KeyCode.LeftArrow)) { StartCoroutine(followLeft1()); }
-        
-    }
-    IEnumerator followRight1() 
-    {
-        foreach(Transform waypoint in rigthPath1)
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            yield return StartCoroutine(Move(waypoint.position,10));
+            MoveR();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveL();
         }
     }
 
-    IEnumerator followLeft1()
+    private void OnTriggerEnter(Collider other)
     {
-        foreach(Transform waypoint in leftPath1)
-        {
-            yield return StartCoroutine(Move(waypoint.position, 10));
-        }
+        _duplicateBase.SpawnTriggerEntered();
     }
 
-
-
-
-
-
-    IEnumerator Move(Vector3 destination, float speed = 10 )
+    private void MoveR()
     {
-        while(transform.position != destination)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
-            yield return 0;
-        }
+            if (_isRight)
+            {
+                _currentPillar++;
+                _currentPillar = _currentPillar >= _pillars.Length ? 0 : _currentPillar;
+                _isRight = false;
+            }
+            else
+            {
+                _isRight = true;
+            }
+        UpdatePosition();
+    }
+
+    private void MoveL()
+    {
+            if (_isRight)
+            {
+                _isRight = false;
+            }
+            else
+            {
+                _isRight = true;
+
+                _currentPillar--;
+                _currentPillar = _currentPillar < 0 ? _pillars.Length - 1 : _currentPillar;
+            }
+        UpdatePosition();
+    }
+
+    private void UpdatePosition()
+    {
+        var currentPillar = _pillars[_currentPillar];
+        var currentPosition = _isRight ? currentPillar.rightTransform : currentPillar.leftTransform;
+        transform.position = currentPosition.position;
+        _camara.transform.SetPositionAndRotation(currentPillar.transform.position, currentPillar.transform.rotation);
     }
 }
+
+
+

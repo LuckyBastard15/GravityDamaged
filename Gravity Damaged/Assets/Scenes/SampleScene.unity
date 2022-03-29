@@ -880,8 +880,8 @@ MonoBehaviour:
   - {fileID: 379873840}
   - {fileID: 924306798}
   - {fileID: 1436613285}
-  camara: {fileID: 963194228}
-  duplicateBase: {fileID: 1059171004}
+  _camara: {fileID: 963194228}
+  _duplicateBase: {fileID: 1059171004}
 --- !u!54 &335858467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1412,10 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e7eff69fd79fe41937aa1e91b7645e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllWalls:
-  - {fileID: 32493847}
-  - {fileID: 128185267}
-  - {fileID: 471019736}
+  _AllWalls: []
 --- !u!4 &1059171003
 Transform:
   m_ObjectHideFlags: 0
@@ -1442,6 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea2c1c5ef213554c99719e8e2ad8a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallsSpawner: {fileID: 0}
 --- !u!1 &1070288531
 GameObject:
   m_ObjectHideFlags: 0
