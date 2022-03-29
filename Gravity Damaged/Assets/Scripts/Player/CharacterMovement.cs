@@ -7,12 +7,14 @@ public class CharacterMovement : MonoBehaviour
     public Pillar[] _pillars = null;
     private int _currentPillar = 0;
     private bool _isRight = true;
-    [SerializeField] public Transform _camara = null ;
-    [SerializeField] public DuplicateBase _duplicateBase = null;
+    [SerializeField] private Transform _camara = null;
+    [SerializeField] private DuplicateBase _duplicateBase = null;
+    [SerializeField] private GameObject _pauseMenu = null;
 
     private void Start()
     {
         UpdatePosition();
+        _pauseMenu.SetActive(false);
     }
 
     void Update()
@@ -32,7 +34,7 @@ public class CharacterMovement : MonoBehaviour
         _duplicateBase.SpawnTriggerEntered();
     }
 
-    private void MoveR()
+    public void MoveR()
     {
             if (_isRight)
             {
@@ -47,7 +49,7 @@ public class CharacterMovement : MonoBehaviour
         UpdatePosition();
     }
 
-    private void MoveL()
+    public void MoveL()
     {
             if (_isRight)
             {
@@ -63,12 +65,33 @@ public class CharacterMovement : MonoBehaviour
         UpdatePosition();
     }
 
+    public void StartButton()
+    {
+        Time.timeScale = 1;
+        if(Time.timeScale == 1)
+        {
+            _pauseMenu.SetActive(false);
+        }
+       
+    }
+    public void PauseButton()
+    {
+        Time.timeScale = 0;
+
+        if (Time.timeScale == 0)
+        {
+            _pauseMenu.SetActive(true);
+        }
+        
+    }
     private void UpdatePosition()
     {
         var currentPillar = _pillars[_currentPillar];
         var currentPosition = _isRight ? currentPillar.rightTransform : currentPillar.leftTransform;
-        transform.position = currentPosition.position;
+        transform.SetPositionAndRotation(currentPosition.position, currentPosition.rotation);
         _camara.transform.SetPositionAndRotation(currentPillar.transform.position, currentPillar.transform.rotation);
+
+
     }
 }
 
