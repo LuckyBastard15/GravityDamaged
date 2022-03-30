@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -13,8 +11,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void Start()
     {
-        UpdatePosition();
         _pauseMenu.SetActive(false);
+        UpdatePosition();
     }
 
     void Update()
@@ -58,7 +56,6 @@ public class CharacterMovement : MonoBehaviour
             else
             {
                 _isRight = true;
-
                 _currentPillar--;
                 _currentPillar = _currentPillar < 0 ? _pillars.Length - 1 : _currentPillar;
             }
@@ -72,17 +69,14 @@ public class CharacterMovement : MonoBehaviour
         {
             _pauseMenu.SetActive(false);
         }
-       
     }
     public void PauseButton()
     {
         Time.timeScale = 0;
-
         if (Time.timeScale == 0)
         {
             _pauseMenu.SetActive(true);
         }
-        
     }
     private void UpdatePosition()
     {
@@ -90,8 +84,6 @@ public class CharacterMovement : MonoBehaviour
         var currentPosition = _isRight ? currentPillar.rightTransform : currentPillar.leftTransform;
         transform.SetPositionAndRotation(currentPosition.position, currentPosition.rotation);
         _camara.transform.SetPositionAndRotation(currentPillar.transform.position, currentPillar.transform.rotation);
-
-
     }
 }
 
