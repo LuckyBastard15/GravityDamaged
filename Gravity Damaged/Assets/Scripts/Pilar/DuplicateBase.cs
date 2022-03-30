@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DuplicateBase : MonoBehaviour
 {
-    [SerializeField]public WallsSpawner _wallsSpawner = null;
+    [SerializeField]private WallsSpawner _wallsSpawner = default;
 
     private void Start()
     {

@@ -29,7 +29,10 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _duplicateBase.SpawnTriggerEntered();
+        if (other.tag == "SpawnTrigger")
+        {
+            _duplicateBase.SpawnTriggerEntered();
+        }
     }
 
     public void MoveR()
