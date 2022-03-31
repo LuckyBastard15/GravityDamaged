@@ -8,7 +8,6 @@ public class DuplicateBase : MonoBehaviour
     {
         _wallsSpawner = GetComponent<WallsSpawner>();
     }
-
     public void SpawnTriggerEntered()
     {
         _wallsSpawner.MoveWalls(); 
