@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Jugador
   - Coin
+  - Destroyer
   layers:
   - Default
   - TransparentFX

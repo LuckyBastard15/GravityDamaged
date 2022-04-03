@@ -1,14 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private GameObject _enemyPrefab;
-   
+    [SerializeField] private float _speed = 13;
+
     void Start()
     {
         StartCoroutine(WaitRespwn());
+        EnemyMovement();
     }
     void SpawnNewEnemy()
     {
@@ -23,6 +26,10 @@ public class EnemyManager : MonoBehaviour
             SpawnNewEnemy();
             yield return new WaitForSeconds(1);
         }
-
+    }
+    private void EnemyMovement()
+    {
+        _enemyPrefab.transform.Translate(Vector3.down * _speed * Time.deltaTime);
     }
 }
+ 

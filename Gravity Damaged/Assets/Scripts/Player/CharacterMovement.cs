@@ -78,12 +78,12 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "SpawnTrigger")
+        if (other.CompareTag("SpawnTrigger"))
         {
             _duplicateBase.SpawnTriggerEntered();
         }
 
-        if(other.tag == "Enemy")
+        if(other.CompareTag("Enemy"))
         {
             _player.SetActive(false);
             if (_player.activeInHierarchy == false)
