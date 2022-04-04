@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoveBaseDown : MonoBehaviour
 {
-    private float _speed = 8;
+    private readonly float _speed = 8;
     
     void Update()
     {
