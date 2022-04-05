@@ -6,7 +6,6 @@ public class CharacterMovement : MonoBehaviour
     private int _currentPillar = 0;
     private bool _isRight = true;
     [SerializeField] private Transform _camara = null;
-    [SerializeField] private DuplicateBase _duplicateBase = null;
     [SerializeField] private GameObject _pauseMenu = null;
     [SerializeField] private GameObject _player = default;
     [SerializeField] private GameObject _looseMenu = null;
@@ -29,7 +28,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void StartButton()
+    public void ResumeButton()
     {
         Time.timeScale = 1;
         if (Time.timeScale == 1)
@@ -37,6 +36,7 @@ public class CharacterMovement : MonoBehaviour
             _pauseMenu.SetActive(false);
         }
     }
+
     public void PauseButton()
     {
         Time.timeScale = 0;
@@ -78,11 +78,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("SpawnTrigger"))
-        {
-            _duplicateBase.SpawnTriggerEntered();
-        }
-
         if(other.CompareTag("Enemy"))
         {
             _player.SetActive(false);
@@ -93,6 +88,7 @@ public class CharacterMovement : MonoBehaviour
             }
         }
     }
+
     private void UpdatePosition()
     {
         var currentPillar = _pillars[_currentPillar];

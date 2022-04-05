@@ -8,6 +8,7 @@ public class Destroyer : MonoBehaviour
         if (other.CompareTag("Destroyer"))
         {
             _enemyToDestroy.SetActive(false);
+            Destroy(this.gameObject);
             Debug.Log("destroy");
         }
     }

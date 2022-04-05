@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] GameObject _coin = default;
+    [SerializeField] private GameObject _coin = default;
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Jugador")
+        if(other.CompareTag("Jugador"))
         {
             _coin.SetActive(false);
-            Score.instance.AddPoint();
+            Score._instance.AddPoint();
         }
     } 
 }

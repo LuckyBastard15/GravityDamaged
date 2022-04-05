@@ -6,6 +6,6 @@ public class MoveBaseDown : MonoBehaviour
     
     void Update()
     {
-        transform.Translate(Vector3.down * _speed * Time.deltaTime);
+        transform.Translate(_speed * Time.deltaTime * Vector3.down);
     }
 }
