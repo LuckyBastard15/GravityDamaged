@@ -6,13 +6,11 @@ public class CharacterMovement : MonoBehaviour
     private int _currentPillar = 0;
     private bool _isRight = true;
     [SerializeField] private Transform _camara = null;
-    [SerializeField] private GameObject _pauseMenu = null;
     [SerializeField] private GameObject _player = default;
     [SerializeField] private GameObject _looseMenu = null;
 
     private void Start()
     {
-        _pauseMenu.SetActive(false);
         UpdatePosition();
     }
 
@@ -25,24 +23,6 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             MoveL();
-        }
-    }
-
-    public void ResumeButton()
-    {
-        Time.timeScale = 1;
-        if (Time.timeScale == 1)
-        {
-            _pauseMenu.SetActive(false);
-        }
-    }
-
-    public void PauseButton()
-    {
-        Time.timeScale = 0;
-        if (Time.timeScale == 0)
-        {
-            _pauseMenu.SetActive(true);
         }
     }
 
