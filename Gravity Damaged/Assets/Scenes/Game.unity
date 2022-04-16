@@ -630,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885d675567b96fc49b0ad2f4ddd03f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseMenu: {fileID: 1358748800}
 --- !u!1001 &128185266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2473,6 +2474,7 @@ MonoBehaviour:
   - {fileID: 32493847}
   - {fileID: 128185267}
   - {fileID: 471019736}
+  _offset: 66
 --- !u!4 &1059171003
 Transform:
   m_ObjectHideFlags: 0
@@ -2583,8 +2585,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2130926790}
-        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
+      - m_Target: {fileID: 86824754}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
         m_MethodName: PauseButton
         m_Mode: 1
         m_Arguments:
@@ -4009,8 +4011,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2130926790}
-        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
+      - m_Target: {fileID: 86824754}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
         m_MethodName: ResumeButton
         m_Mode: 1
         m_Arguments:

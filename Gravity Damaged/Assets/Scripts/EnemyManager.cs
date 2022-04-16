@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(WaitRespwn());
+        StartCoroutine(WaitRespawn());
         EnemyMovement();
     }
 
@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
         Instantiate(_enemyPrefab, _spawnPoints[randomNumber].transform.position, _spawnPoints[randomNumber].transform.rotation);
     }
 
-    private IEnumerator WaitRespwn()
+    private IEnumerator WaitRespawn()
     {
         while (true)
         {
@@ -34,4 +34,5 @@ public class EnemyManager : MonoBehaviour
         _enemyPrefab.transform.Translate(_speed * Time.deltaTime * Vector3.down);
     }
 }
+
  

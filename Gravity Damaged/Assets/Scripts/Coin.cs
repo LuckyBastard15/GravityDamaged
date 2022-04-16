@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Jugador"))
+        if (other.CompareTag("Jugador"))
         {
             _coin.SetActive(false);
             Score._instance.AddPoint();
