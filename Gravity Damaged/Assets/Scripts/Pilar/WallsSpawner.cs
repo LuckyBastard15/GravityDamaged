@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WallsSpawner : MonoBehaviour
 {
-    [SerializeField]public List<GameObject> _AllWalls;
-    private float _offset = 22f;
+    [SerializeField]private List<GameObject> _AllWalls;
+    [SerializeField]private float _offset = 66f;
 
     void Start()
     {

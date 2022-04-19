@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnTrigger
+  - Enemy
+  - Jugador
+  - Coin
+  - Destroyer
   layers:
   - Default
   - TransparentFX

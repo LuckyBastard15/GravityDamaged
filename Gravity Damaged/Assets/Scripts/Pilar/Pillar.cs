@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class Pillar : MonoBehaviour
 {
-    public Transform leftTransform;
-    public Transform rightTransform;
+    [SerializeField]public Transform leftTransform;
+    [SerializeField]public Transform rightTransform;
 }
