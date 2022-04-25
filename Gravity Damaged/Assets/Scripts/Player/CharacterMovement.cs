@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -73,8 +74,10 @@ public class CharacterMovement : MonoBehaviour
     {
         var currentPillar = _pillars[_currentPillar];
         var currentPosition = _isRight ? currentPillar.rightTransform : currentPillar.leftTransform;
-        transform.SetPositionAndRotation(currentPosition.position, currentPosition.rotation);
+        transform.rotation = currentPosition.rotation;
         _camara.transform.SetPositionAndRotation(currentPillar.transform.position, currentPillar.transform.rotation);
+        transform.DOMove(currentPosition.position, 0.8f).SetEase(Ease.InOutSine);
+      
     }
 }
 
