@@ -5,12 +5,10 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPoints = default;
     [SerializeField] private GameObject _enemyPrefab = default;
-    [SerializeField] private float _speed = 13;
 
     void Start()
     {
         StartCoroutine(WaitRespawn());
-        EnemyMovement();
     }
 
     void SpawnNewEnemy()
@@ -29,10 +27,6 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void EnemyMovement()
-    {
-        _enemyPrefab.transform.Translate(_speed * Time.deltaTime * Vector3.down);
-    }
 }
 
  
