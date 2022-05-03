@@ -3,15 +3,16 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    public static Score _instance = default;
-    [SerializeField]private TextMeshProUGUI _scoreText = default;
-    [SerializeField]private TextMeshProUGUI _highScoreText = default;
+    public static Score Instance { get; private set; }
     int _score = 0;
     int _highScore = 0;
 
+    [SerializeField] private TextMeshProUGUI _scoreText = default;
+    [SerializeField] private TextMeshProUGUI _highScoreText = default;
+
     public void Awake()
     {
-        _instance = this;
+        Instance = this;
     }
 
     private void Start()

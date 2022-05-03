@@ -10,7 +10,6 @@ public class Destroyer : MonoBehaviour
         {
             _enemyToDestroy.SetActive(false);
             Destroy(this.gameObject);
-            Debug.Log("destroy");
         }
     }
 }

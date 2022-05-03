@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Jugador"))
         {
             _coin.SetActive(false);
-            Score._instance.AddPoint();
+            Score.Instance.AddPoint();
         }
     }
 }
