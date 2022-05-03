@@ -10,7 +10,6 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private GameObject _player = default;
     [SerializeField] private GameObject _looseMenu = null;
     [SerializeField] private Pillar[] _pillars = null;
-    [SerializeField] private Pillar[] _cameras = null;
 
     private void Start()
     {
