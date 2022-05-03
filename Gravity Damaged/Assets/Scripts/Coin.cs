@@ -11,5 +11,5 @@ public class Coin : MonoBehaviour
             _coin.SetActive(false);
             Score._instance.AddPoint();
         }
-    } 
+    }
 }
