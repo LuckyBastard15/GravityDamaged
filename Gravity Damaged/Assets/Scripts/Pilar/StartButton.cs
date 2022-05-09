@@ -28,6 +28,7 @@ public class StartButton : MonoBehaviour
         if (Time.timeScale == 1)
         {
             _pauseMenu.SetActive(false);
+            
         }
     }
 
