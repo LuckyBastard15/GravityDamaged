@@ -72,7 +72,7 @@ public class CharacterMovement : MonoBehaviour
 
     public IEnumerator Crash()
     {
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1.25f);
         _animLooseMenu.SetTrigger("Loose");
     }
 

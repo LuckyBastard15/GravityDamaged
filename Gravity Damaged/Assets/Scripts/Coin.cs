@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -9,14 +10,19 @@ public class Coin : MonoBehaviour
     {
         _conffeti = GetComponent<ParticleSystem>();
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Jugador"))
         {
             _conffeti.Play();
-            _coin.SetActive(false);
-            Score.Instance.AddPoint();
+            StartCoroutine(Conffeti());
+            
         }
+    }
+    public IEnumerator Conffeti()
+    {
+        yield return new WaitForSeconds(0.15f);
+        _coin.SetActive(false);
+        Score.Instance.AddPoint();
     }
 }
