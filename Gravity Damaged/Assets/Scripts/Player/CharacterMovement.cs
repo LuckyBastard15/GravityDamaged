@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Transform _camera = null;
     [SerializeField] private Pillar[] _pillars = null;
     [SerializeField] private Animator _animLooseMenu;
+    [SerializeField] private Animator _animLoosePlayer;
     [SerializeField] private ParticleSystem _crash;
 
     private void Start()
@@ -66,6 +67,7 @@ public class CharacterMovement : MonoBehaviour
         {
             _crash.Play();
             Time.timeScale = 0;
+            _animLoosePlayer.SetTrigger("Dead");
             StartCoroutine(Crash());
         }
     }
