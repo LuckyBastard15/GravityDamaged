@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    [SerializeField] private GameObject _pauseMenu = null;
+    [SerializeField]private Animator _animPauseMenu;
     
     public void StartButto()
     {
@@ -27,7 +27,7 @@ public class StartButton : MonoBehaviour
         Time.timeScale = 1;
         if (Time.timeScale == 1)
         {
-            _pauseMenu.SetActive(false);
+            _animPauseMenu.SetTrigger("NotPause");
         }
     }
 
@@ -36,7 +36,7 @@ public class StartButton : MonoBehaviour
         Time.timeScale = 0;
         if (Time.timeScale == 0)
         {
-            _pauseMenu.SetActive(true);
+            _animPauseMenu.SetTrigger("Pause");
         }
     }
 }

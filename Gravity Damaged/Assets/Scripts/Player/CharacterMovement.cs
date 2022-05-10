@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -7,13 +8,14 @@ public class CharacterMovement : MonoBehaviour
     private bool _isRight = true;
 
     [SerializeField] private Transform _camera = null;
-    [SerializeField] private GameObject _player = default;
-    [SerializeField] private GameObject _looseMenu = null;
     [SerializeField] private Pillar[] _pillars = null;
+    [SerializeField] private Animator _animLooseMenu;
+    [SerializeField] private ParticleSystem _crash;
 
     private void Start()
     {
         UpdatePosition();
+        _crash = GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -62,13 +64,16 @@ public class CharacterMovement : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            _player.SetActive(false);
-            if (_player.activeInHierarchy == false)
-            {
-                Time.timeScale = 0;
-                _looseMenu.SetActive(true);
-            }
+            _crash.Play();
+            Time.timeScale = 0;
+            StartCoroutine(Crash());
         }
+    }
+
+    public IEnumerator Crash()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        _animLooseMenu.SetTrigger("Loose");
     }
 
     private void UpdatePosition()
