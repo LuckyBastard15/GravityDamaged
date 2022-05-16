@@ -9,9 +9,9 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] private Transform _camera = null;
     [SerializeField] private Pillar[] _pillars = null;
-    [SerializeField] private Animator _animLooseMenu;
-    [SerializeField] private Animator _animLoosePlayer;
-    [SerializeField] private ParticleSystem _crash;
+    [SerializeField] private Animator _animLooseMenu = default;
+    [SerializeField] private Animator _animLoosePlayer = default;
+    [SerializeField] private ParticleSystem _crash = default;
 
     private void Start()
     {
