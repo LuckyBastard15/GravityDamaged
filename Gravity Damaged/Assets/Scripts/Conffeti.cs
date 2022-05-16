@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Conffeti : MonoBehaviour
 {
-    
-   
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Coin"))
         {
-            //_conffeti.Play();
             Debug.Log("Confetti");
         }
     }
