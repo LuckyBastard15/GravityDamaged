@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -7765191762994373471}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: {fileID: 3820333244338911656}
+  _conffeti: {fileID: 0}
 --- !u!135 &3820333244338911663
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class triggerSpawnWalls : MonoBehaviour
+public class TriggerSpawnWalls : MonoBehaviour
 {
     [SerializeField] private DuplicateBase _duplicateBase = null;
     private void OnTriggerEnter(Collider other)
@@ -11,4 +11,3 @@ public class triggerSpawnWalls : MonoBehaviour
         }
     }
 }
-    
