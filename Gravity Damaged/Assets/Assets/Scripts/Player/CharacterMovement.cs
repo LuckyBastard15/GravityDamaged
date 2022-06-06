@@ -98,7 +98,7 @@ public class CharacterMovement : MonoBehaviour
         var currentPillar = _pillars[_currentPillar];
         var currentPosition = _isRight ? currentPillar.rightTransform : currentPillar.leftTransform;
         transform.rotation = currentPosition.rotation;
-        transform.DOMove(currentPosition.position, 0.6f).SetEase(Ease.InOutSine);
+        transform.DOMove(currentPosition.position, 0.7f).SetEase(Ease.InOutSine);
         var currentPosCamera = _isRight ? currentPillar.rightCameraTransform : currentPillar.leftCameraTransform;
         _camera.transform.DOMove(currentPosCamera.position, 0.8f).SetEase(Ease.InOutSine);  
         _camera.transform.DORotate(currentPosCamera.eulerAngles, 0.8f).SetEase(Ease.InOutSine);
